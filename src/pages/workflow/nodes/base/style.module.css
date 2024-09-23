@@ -1,0 +1,26 @@
+.node {
+  border: transparent;
+  border-radius: 16px;
+  border: 2px solid transparent;
+}
+
+.node-selected {
+  border: 2px solid var(--color-primary);
+}
+
+.content-wrapper {
+  --tw-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --tw-shadow-colored: 0px 1px 2px 0px var(--tw-shadow-color);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.content {
+  width: 100%;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 12px;
+  text-align: left;
+}
