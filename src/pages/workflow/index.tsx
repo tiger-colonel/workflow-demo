@@ -25,8 +25,6 @@ const Workflow = () => {
         x: INIT_NODE_X,
         y: INIT_NODE_Y,
       },
-      positionAbsoluteX: INIT_NODE_X,
-      positionAbsoluteY: INIT_NODE_Y,
 
       type: "custom",
       data: {
