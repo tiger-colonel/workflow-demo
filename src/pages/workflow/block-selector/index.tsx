@@ -1,16 +1,16 @@
-import type { FC, MouseEventHandler } from 'react';
-import { memo, useCallback, useState } from 'react';
-import type { OffsetOptions, Placement } from '@floating-ui/react';
-import { PlusOutlined } from '@ant-design/icons';
+import type { FC, MouseEventHandler } from "react";
+import { memo, useCallback, useState } from "react";
+import type { OffsetOptions, Placement } from "@floating-ui/react";
+import { PlusOutlined } from "@ant-design/icons";
 
 import {
   PortalToFollowElem,
   PortalToFollowElemContent,
   PortalToFollowElemTrigger,
-} from '../components/portal-to-follow-elem';
-import { StageEnum } from '../types';
-import { Flex } from 'antd';
-import { STAGE_LIST } from '../constants';
+} from "../components/portal-to-follow-elem";
+import { StageEnum } from "../types";
+import { Flex } from "antd";
+import { STAGE_LIST } from "../constants";
 
 type NodeSelectorProps = {
   open?: boolean;
@@ -32,7 +32,7 @@ const NodeSelector: FC<NodeSelectorProps> = ({
   onOpenChange,
   onSelect,
   existStages,
-  placement = 'right',
+  placement = "right",
   offset = 6,
   triggerClassName,
   triggerStyle,
@@ -48,7 +48,7 @@ const NodeSelector: FC<NodeSelectorProps> = ({
 
       if (onOpenChange) onOpenChange(newOpen);
     },
-    [onOpenChange],
+    [onOpenChange]
   );
   const handleTrigger = useCallback<MouseEventHandler<HTMLDivElement>>(
     (e) => {
@@ -56,7 +56,7 @@ const NodeSelector: FC<NodeSelectorProps> = ({
       e.stopPropagation();
       handleOpenChange(!open);
     },
-    [handleOpenChange, open, disabled],
+    [handleOpenChange, open, disabled]
   );
 
   const handleSelect = useCallback(
@@ -64,7 +64,7 @@ const NodeSelector: FC<NodeSelectorProps> = ({
       handleOpenChange(false);
       onSelect(type);
     },
-    [handleOpenChange, onSelect],
+    [handleOpenChange, onSelect]
   );
 
   return (
@@ -78,13 +78,13 @@ const NodeSelector: FC<NodeSelectorProps> = ({
         <div
           className={`
             flex items-center justify-center 
-            w-4 h-4 rounded-full bg-primary cursor-pointer z-10
+            w-4 h-4 rounded-full bg-#1677FF cursor-pointer z-10
             ${triggerClassName?.(open)}
           `}
           style={triggerStyle}
         >
           <PlusOutlined
-            style={{ fontWeight: 'bold' }}
+            style={{ fontWeight: "bold" }}
             className="font-bold w-2.5 h-2.5 text-white"
           />
         </div>
@@ -103,7 +103,7 @@ const NodeSelector: FC<NodeSelectorProps> = ({
                   <Flex
                     key={item.key}
                     align="center"
-                    className={`basis-[calc(50%-3px)] h-36px rounded-12px bg-#F5F7F9 px-10px text-14px cursor-pointer  hover:bg-#E3E8ED ${existStages?.includes(item.key) && 'text-gray-500 cursor-not-allowed'}`}
+                    className={`basis-[calc(50%-3px)] h-36px rounded-12px bg-#F5F7F9 px-10px text-14px cursor-pointer  hover:bg-#E3E8ED ${existStages?.includes(item.key) && "text-gray-500 cursor-not-allowed"}`}
                     onClick={() => {
                       if (existStages?.includes(item.key)) return;
                       handleSelect(item.key);

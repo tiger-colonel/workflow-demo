@@ -1,16 +1,16 @@
-import { memo, useCallback, useState } from 'react';
-import type { MouseEvent } from 'react';
-import { Node, NodeTypeEnum, StageEnum } from '../types';
-import { useNodesInteractions } from '../hooks';
-import { Handle, Position } from '@xyflow/react';
-import BlockSelector from '../block-selector';
+import { memo, useCallback, useState } from "react";
+import type { MouseEvent } from "react";
+import { Node, NodeTypeEnum, StageEnum } from "../types";
+import { useNodesInteractions } from "../hooks";
+import { Handle, Position } from "@xyflow/react";
+import BlockSelector from "../block-selector";
 
 type NodeHandleProps = {
   handleId: string;
   afterSizeClass?: string;
   handleClassName?: string;
   nodeSelectorClassName?: string;
-} & Pick<Node, 'id' | 'data'>;
+} & Pick<Node, "id" | "data">;
 
 export const NodeTargetHandle = memo(
   ({
@@ -30,7 +30,7 @@ export const NodeTargetHandle = memo(
           }
           className={`
             !w-4 !h-4 !bg-transparent !rounded-none !outline-none !border-none z-1
-            after:absolute after:top-2px after:bg-primary after:rounded-3px
+            after:absolute after:top-2px after:bg-#1677FF after:rounded-3px
             ${afterSizeClass}
             after:inline-block after:content-empty
             hover:scale-125 transition-all
@@ -40,7 +40,7 @@ export const NodeTargetHandle = memo(
         ></Handle>
       </>
     );
-  },
+  }
 );
 
 export const NodeSourceHandle = memo(
@@ -65,7 +65,7 @@ export const NodeSourceHandle = memo(
       } else {
         handleNodeAdd(
           { prevNodeId: id },
-          { nodeType: NodeTypeEnum.StageChild, stage: data.stage },
+          { nodeType: NodeTypeEnum.StageChild, stage: data.stage }
         );
       }
     };
@@ -77,10 +77,10 @@ export const NodeSourceHandle = memo(
           {
             nodeType: NodeTypeEnum.Stage,
             stage: type,
-          },
+          }
         );
       },
-      [handleNodeAdd, id, handleId],
+      [handleNodeAdd, id, handleId]
     );
 
     return (
@@ -91,7 +91,7 @@ export const NodeSourceHandle = memo(
           position={Position.Right}
           className={`
           !w-4 !h-4 !bg-transparent !rounded-none !outline-none !border-none z-[1]
-          after:absolute after:w-2 after:h-0.5 after:right-1.5 after:top-1 after:bg-primary
+          after:absolute after:w-2 after:h-0.5 after:right-1.5 after:top-1 after:bg-#1677FF
           after:content-empty after:inline-block
           hover:scale-125 transition-all
           ${handleClassName}
@@ -109,12 +109,12 @@ export const NodeSourceHandle = memo(
                 hidden absolute top-0 left-0 pointer-events-none 
                 ${nodeSelectorClassName}
                 group-hover:!flex
-                ${data.selected && '!flex'}
-                ${open && '!flex'}
+                ${data.selected && "!flex"}
+                ${open && "!flex"}
               `}
           />
         </Handle>
       </>
     );
-  },
+  }
 );
